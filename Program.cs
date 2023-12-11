@@ -8,7 +8,12 @@ class Program
         byte aggression = 1;
         byte democracyModifier = 2;
 
-        aggression = (byte)(aggression - democracyModifier); //  сужающее преобразование ланных
+
+        checked
+        {
+            aggression = (byte)(aggression - democracyModifier); //  сужающее преобразование ланных
+        }
+        
 
         Console.WriteLine(aggression);
 
