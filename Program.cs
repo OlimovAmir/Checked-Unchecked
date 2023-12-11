@@ -8,11 +8,18 @@ class Program
         byte aggression = 1;
         byte democracyModifier = 2;
 
-
-        checked
+        try
         {
-            aggression = (byte)(aggression - democracyModifier); //  сужающее преобразование ланных
+            checked
+            {
+                aggression = (byte)(aggression - democracyModifier); //  сужающее преобразование ланных
+            }
         }
+        catch(Exception ex)
+        {
+            Console.WriteLine("Ошибка");
+        }
+        
         
 
         Console.WriteLine(aggression);
@@ -24,6 +31,7 @@ class Program
 
         int b = int.MinValue;
         b = b - 1; // переполнение через нижную границу
-        Console.WriteLine(b);
+        Console.WriteLine(checked(b));
+       
     }
 }
